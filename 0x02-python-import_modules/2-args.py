@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-import sys
+from sys import argv
+
 
 def main():
     Len = len(argv)
