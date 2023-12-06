@@ -9,7 +9,7 @@ void print_python_list_info(PyObject *p)
 {
 	int total_count, allocation, itr;
 	PyObject *object;
-
+	const char *type
 	total_count = PyList_Size(p);
 	allocation = ((PyListObject *)p)->allocated;
 
@@ -20,6 +20,7 @@ void print_python_list_info(PyObject *p)
 	{
 		printf("Element %d: ", itr);
 		object = PyList_GetItem(p, itr);
-		printf("%s\n", Py_TYPE(object)->tp_name);
+		type = Py_TYPE(object)->tp_name;
+		printf("%s\n", type);
 	}
 }
