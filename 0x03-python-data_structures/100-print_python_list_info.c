@@ -5,7 +5,7 @@
  * @p: PyObject list
  */
 
-void print_python_list_info(Pyobject *p)
+void print_python_list_info(PyObject *p)
 {
 	int totall_count, allocation, itr;
 	PyObject *object;
