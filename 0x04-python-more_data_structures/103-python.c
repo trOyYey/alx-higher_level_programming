@@ -1,5 +1,7 @@
-#include "Python.h"
+#include <Python.h>
 
+void print_python_list(PyObject *p);
+void print_python_bytes(PyObject *p);
 
 /**
  * print_python_bytes - prints basic info about byes
@@ -7,24 +9,32 @@
  */
 void print_python_bytes(PyObject *p)
 {
-	PyBytesObject *list = (PyBytesObject *) p;
-	long int itr, size = list->ob_base.ob_size;
+	PyBytesObject *Bytes = (PyBytesObject *) p;
+	unsigned char  itr, size;
 
 	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p))
+	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
-	printf("  size: %ld\n", size);
-	printf("  trying string: %s\n", list->ob_sval);
-	size = size < 10 ? size + 1 : 10;
-	printf("  first %ld bytes:", size);
+	printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);
+	printf("  trying string: %s\n", Bytes->ob_sval);
+
+	if (((PyVarObject *)p)->ob_size > 10)
+		size = 10;
+	else
+		size = ((PyVarObject *)p)->ob_size + 1;
+	printf("  first %d bytes: ", size);
 	for (itr = 0; itr < size; itr++)
 	{
-		printf(" %2.2x", list->ob_sval[itr] & 0xff);
+		printf("%02hhx", Bytes->ob_sval[itr]);
+		if (itr == (size - 1))
+			printf("\n");
+		else
+			printf(" ");
 	}
-	putchar('\n');
+
 }
 
 
