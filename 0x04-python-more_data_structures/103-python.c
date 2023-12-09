@@ -44,21 +44,21 @@ void print_python_bytes(PyObject *p)
  * @p: PyObject list
  */
 
-void print_python_list_info(PyObject *p)
+void print_python_list(PyObject *p)
 {
-	int total_count, allocation, itr;
+	int total_size, allocation, itr;
 	const char *type;
 	PyListObject *List = (PyListObject *)p;
 	PyVarObject *variable = (PyVarObject *)p;
 
-	total_count = variable->ob_size;
+	total_size = variable->ob_size;
 	allocation = List->allocated;
 
 	printf("[*] Python list info\n");
-	printf("[*] Size of the Python List = %d\n", total_count);
+	printf("[*] Size of the Python List = %d\n", total_size);
 	printf("[*] Allocated = %d\n", allocation);
 
-	for (itr = 0; itr < total_count; itr++)
+	for (itr = 0; itr < total_size; itr++)
 	{
 		type = List->ob_item[itr]->ob_type->tp_name;
 		printf("Element %d: %s\n", itr, type);
