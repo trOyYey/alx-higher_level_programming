@@ -3,14 +3,11 @@
 
 
 class Square:
-    """Defining a Square."""
-    def __init__(self, size=0):
+    """Defining a named Square."""
+    def __init__(self, size=0, position=(0, 0)):
         """initilazing the size value of Square"""
-        if type(size) != int:
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
         self.__size = size
+        self.position = position
 
     def area(self):
         """area method returns current square area"""
@@ -29,6 +26,11 @@ class Square:
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
+        
+    @property
+    def position(self):
+        """gets value of size"""
+        return self.__position
 
     @position.setter
     def position(self, value):
