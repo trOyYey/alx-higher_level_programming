@@ -34,7 +34,7 @@ class Square:
     def __eq__(self, other):
             return self.area() == other.area()
 
-        @property
+    @property
     def size(self):
         """gets size of the squar"""
         return self.__size
