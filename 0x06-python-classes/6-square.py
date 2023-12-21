@@ -27,11 +27,6 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
         
-    @property
-    def position(self):
-        """gets value of size"""
-        return self.__position
-
     @position.setter
     def position(self, value):
         """sets value of position"""
