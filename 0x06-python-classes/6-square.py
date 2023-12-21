@@ -31,7 +31,7 @@ class Square:
     def position(self):
         """gets the value of position"""
         return self.__position
-        
+
     @position.setter
     def position(self, value):
         """sets value of position"""
