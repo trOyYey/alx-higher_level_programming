@@ -66,4 +66,4 @@ class Rectangle:
     def __del__(self):
         """priting a message when and for every deletes of the rectangle"""
         print("Bye rectangle...")
-        Rectangle.nummber_of_instances -= 1
+        Rectangle.number_of_instances -= 1
