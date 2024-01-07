@@ -73,7 +73,7 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """static method which compares the calculated area of rect_1 and rect_2"""
+        """static method which compares calculated area of Rectangles"""
         if type(rect_1) != Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
         if type(rect_2) != Rectangle:
@@ -82,6 +82,7 @@ class Rectangle:
             return rect_1
         else:
             return rect_2
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """return the biggest of the two rectangles"""
