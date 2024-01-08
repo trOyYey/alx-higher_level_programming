@@ -19,7 +19,7 @@ Test both = 0:
 
 Test arg one is float:
 
-    >>> add_inteiger(4.4)
+    >>> add_integer(4.4)
     102
 
 Test first is negtaive float:
