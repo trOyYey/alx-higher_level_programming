@@ -27,7 +27,7 @@ def matrix_mul(m_a, m_b):
     if type(m_b) != list:
         raise TypeError("m_b must be a list")
     for row in m_a:
-        if not isinstance (row, list):
+        if not isinstance(row, list):
             raise TypeError("m_a must be a list of lists")
         if len(row) != len(m_a[0]):
             raise TypeError("each row of m_a must be of the same size")
