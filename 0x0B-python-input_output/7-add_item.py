@@ -4,7 +4,7 @@
 
 import sys
 load_from_json = __import__('6-load_from_json_file').load_from_json_file
-save_json = __import__('5-save_to_json_file').save_to_json_file
+save_to_json = __import__('5-save_to_json_file').save_to_json_file
 
 
 def main():
@@ -14,10 +14,10 @@ def main():
     except FileNotFoundError:
         lst = []
 
-    for data in sys.argv[1:]:
-        lst.append(data)
+    for i in sys.argv[1:]:
+        lst.append(i)
 
-    save_json(lst, filename)
+    save_to_json(lst, filename)
 
 
 if __name__ == "__main__":
