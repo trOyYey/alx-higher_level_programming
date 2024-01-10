@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unittest for max_integer moudle"""
+"""Unittest max_integer"""
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
@@ -137,8 +137,7 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_floats(self):
         """Unittest for max_integer funtion"""
-        self.assertEqual(
-OAOAOAOAOAOAOAOAOAOA            max_integer(
+        self.assertEqual(max_integer(
                 [.00123, .457568, .02345, .23423434, .45675674, .678678,
                     .999990, .74653, .5745375]), 0.99999)
 
