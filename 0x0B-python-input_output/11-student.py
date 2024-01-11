@@ -25,5 +25,5 @@ class Student:
     def reload_from_json(self, json):
         """swaps attributes with corresponding attributes from json"""
         if json:
-            self.__dict__.update((key,
-                json[key]) for key in json if hasattr(self, key))
+            self.__dict__.update(
+                    (key, json[key])for key in json if hasattr(self, key))
