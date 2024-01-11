@@ -10,7 +10,7 @@ def print_stat(size, stats):
     """prints stats in specified format"""
     f_size = "File size: {}\n".format(size)
     for x in stats:
-        if stats[f_size] != 0:
+        if stats[x] != 0:
             f_size += "{}: {}\n".format(x, stats[x])
     sys.stdout.write(f_size)
     sys.stdout.flush()
