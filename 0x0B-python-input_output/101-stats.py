@@ -15,6 +15,7 @@ def print_stat(size, stats):
     sys.stdout.write(f_size)
     sys.stdout.flush()
 
+
 def main():
     size = 0
     stats = {"200": 0, "301": 0, "400": 0,
@@ -43,6 +44,7 @@ def main():
     except KeyboardInterrupt:
         print_stat(size, stats)
         raise
+
 
 if __name__ == "__main__":
     main()
