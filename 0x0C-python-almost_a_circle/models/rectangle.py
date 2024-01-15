@@ -4,7 +4,7 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    '''A Rectangle class.'''
+    '''rectangle class'''
 
     def __init__(self, width, height, x=0, y=0, id=None):
         '''constructor'''
@@ -21,6 +21,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        self.validate_attributes("height", value)
         self.__height = value
 
     @property
@@ -30,6 +31,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        self.validate_attributes("width", value)
         self.__width = value
 
     @property
@@ -39,6 +41,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        self.validate_attributes("x", value)
         self.__x = value
 
     @property
@@ -48,4 +51,18 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
+        self.validate_attributes("y", value)
         self.__y = value
+
+    def validate_attributes(self, name, value, eq=True):
+        '''method validating the value and error messages'''
+        if not isinstance(value, int):
+            raise TypeError("{} must be an integer".format(name))
+        if eq and value < 0:
+            raise ValueError("{} must be >= 0".format(name))
+        elif not eq and value <= 0:
+            raise ValueError("{} must be > 0".format(name))
+
+    def area(self):
+        '''calculates the  area of the rectangle'''
+        return self.width * self.height
