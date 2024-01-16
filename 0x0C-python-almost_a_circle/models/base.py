@@ -3,6 +3,7 @@
 from json import dumps, loads
 from os.path import exists
 
+
 class Base:
     """base class for all geometric forms"""
     __nb_objects = 0
