@@ -36,11 +36,11 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """"dict to json"""
+        """"converts a JSON string to a python object"""
         tmp = json_string
         if tmp is None or type(tmp) is not str:
-            return []
+            return "[]"
         elif len(tmp) == 0:
-            return []
+            return "[]"
         else:
             return json.loads(json_string)
