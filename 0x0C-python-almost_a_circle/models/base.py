@@ -87,3 +87,25 @@ class Base:
         dictionaries = cls.from_json_string(json_string) if json_string else []
         instances = [cls.create(**values) for values in dictionaries]
         return instances
+
+        @staticmethod
+    def draw(list_rectangles, list_squares):
+        shapes = list_rectangles + list_squares
+        for z in shapes:
+            paint = turtle.Turtle()
+            paint.color(random(), random(), random())
+            paint.setpos(-z.x, -z.y)
+            paint.pensize(3)
+            paint.penup
+            paint.pendown()
+            paint.forward(z.width)
+            paint.right(90)
+            paint.forward(z.height)
+            paint.right(90)
+            paint.forward(z.width)
+            paint.right(90)
+            paint.forward(z.height)
+            paint.right(90)
+            paint.end_fill()
+
+        time.sleep(5)
