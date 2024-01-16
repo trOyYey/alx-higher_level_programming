@@ -28,7 +28,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        '''dict to file'''
+        '''saves JSON string in file'''
         name = cls.__name__
         lst = [x.to_dictionary() for x in list_objs] if list_objs else []
         with open(f"{name}.json", "w+", encoding="utf-8") as file:
@@ -43,7 +43,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        '''creates or updates class values from input'''
+        '''creates or updates class values from dictionary list'''
         from models.rectangle import Rectangle
         from models.square import Square
         if cls is Rectangle:
@@ -54,3 +54,13 @@ class Base:
             fresh_class = None
         fresh_class.update(**dictionary)
         return fresh_class
+
+    @classmethod
+    def load_from_file(cls):
+        '''creates new object from JSON string inside a  file.'''
+        name = cls.__name__ + ".json"
+        if not exists(name):
+            return []
+        with open(name, "r+", encoding="utf-8") as file:
+            tmp = cls.from_json_string(file.read())
+        return [cls.create(**a) for a in tmp]
