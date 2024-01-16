@@ -39,5 +39,5 @@ class Base:
         """"converts a JSON string to a python object"""
         tmp = json_string
         if tmp is None or type(tmp) is not str or len(tmp) == 0:
-            return "[]"
+            return []
         return json.loads(json_string)
