@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""base class mod"""
+"""base class module"""
 from json import dumps, loads
 from os.path import exists
 import csv
@@ -88,7 +88,7 @@ class Base:
         instances = [cls.create(**values) for values in dictionaries]
         return instances
 
-        @staticmethod
+    @staticmethod
     def draw(list_rectangles, list_squares):
         shapes = list_rectangles + list_squares
         for z in shapes:
