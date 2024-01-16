@@ -17,7 +17,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """"dictionary to JSON"""
-        tmp = list_dictionaries
-        if tmp is None or type(tmp) is not list or len(tmp) == 0:
-            return "[]"
-        return json.dumps(list_dictionaries)
+    try:
+        return dumps(list_dictionaries)
+    except (TypeError, ValueError):
+        return "[]"
