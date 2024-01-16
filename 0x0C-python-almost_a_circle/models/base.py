@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """base class mod"""
-
+from json import dumps, loads
 
 class Base:
     """base class for all geometric forms"""
@@ -17,7 +17,10 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """"dictionary to JSON"""
-        if list_dictionaries is None or not list_dictionaries:
+        tmp = list_dictionaries
+        if tmp is None or type(tmp) is not list:
+            return "[]"
+        elif len(tmp) == 0:
             return "[]"
         else:
             return dumps(list_dictionaries)
