@@ -72,7 +72,7 @@ class Base:
         """save objects to a CSV file"""
         class_name = cls.__name__
         dictionaries = [obj.to_dictionary() for obj in list_objs] \
-                if list_objs else []
+            if list_objs else []
         with open(f"{class_name}.csv", "w+", encoding="utf-8") as file:
             file.write(Base.to_json_string(dictionaries))
 
