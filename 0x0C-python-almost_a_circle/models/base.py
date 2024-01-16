@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """base class mod"""
 from json import dumps, loads
-
+from os.path import exists
 
 class Base:
     """base class for all geometric forms"""
