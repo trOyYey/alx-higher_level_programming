@@ -38,9 +38,6 @@ class Base:
     def from_json_string(json_string):
         """"converts a JSON string to a python object"""
         tmp = json_string
-        if tmp is None or type(tmp) is not str:
+        if tmp is None or type(tmp) is not str or len(tmp) == 0:
             return "[]"
-        elif len(tmp) == 0:
-            return "[]"
-        else:
-            return json.loads(json_string)
+        return json.loads(json_string)
