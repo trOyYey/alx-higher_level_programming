@@ -2,6 +2,7 @@
 """base class mod"""
 from json import dumps, loads
 
+
 class Base:
     """base class for all geometric forms"""
     __nb_objects = 0
