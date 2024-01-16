@@ -2,6 +2,7 @@
 """base class mod"""
 from json import dumps, loads
 from os.path import exists
+import csv
 
 
 class Base:
@@ -65,3 +66,24 @@ class Base:
         with open(name, "r+", encoding="utf-8") as file:
             tmp = cls.from_json_string(file.read())
         return [cls.create(**a) for a in tmp]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save objects to a CSV file"""
+        class_name = cls.__name__
+        dictionaries = [obj.to_dictionary() for obj in list_objs] \
+                if list_objs else []
+        with open(f"{class_name}.csv", "w+", encoding="utf-8") as file:
+            file.write(Base.to_json_string(dictionaries))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Create new objects from values in a CSV file"""
+        file_name = f"{cls.__name__}.csv"
+        if not exists(file_name):
+            return []
+        with open(file_name, "r+", encoding="utf-8") as file:
+            json_string = file.read()
+        dictionaries = cls.from_json_string(json_string) if json_string else []
+        instances = [cls.create(**values) for values in dictionaries]
+        return instances
