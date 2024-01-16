@@ -40,3 +40,17 @@ class Base:
         if json_string is None or not json_string:
             return []
         return loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        '''creates or updates class values from input'''
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls is Rectangle:
+            fresh_class = Rectangle(1, 1)
+        elif cls is Square:
+            fresh_class = Square(1)
+        else:
+            fresh_class = None
+        fresh_class.update(**dictionary)
+        return fresh_class
