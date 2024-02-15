@@ -1,0 +1,6 @@
+-- create hbtn_0d_usa and table states with id unique,autogen prim key
+CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
+CREATE TABLE IF NOT EXISTS hbtn_0d_usa.states (
+		id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+		name VARCHAR(256)
+		);
