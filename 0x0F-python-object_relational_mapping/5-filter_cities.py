@@ -16,7 +16,8 @@ def main():
         if i < len(rows) - 1:
             print(rows[i][0], end=", ")
         else:
-            print(rows[i][0])
+            print(rows[i][0], end="")
+    print()
     cur.close()
     db.close()
 
