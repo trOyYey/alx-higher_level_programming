@@ -10,4 +10,4 @@ if __name__ == "__main__":
     header = {"X-GitHub-Api-Version": "2022-11-28"}
     request = requests.get(url, params=limit, headers=header).json()
     for key in request:
-        print("{key.get('sha')}: {key.get('commit').get('author').get('name')}")
+        print(f"{key.get('sha')}: {key.get('commit').get('author').get('name')}")
