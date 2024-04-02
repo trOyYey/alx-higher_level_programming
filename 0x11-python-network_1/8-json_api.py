@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" script that takes in a letter and sends a POST request to http://0.0.0.0:5000/search_user """
+""" script that takes in a letter and sends a POST request to search_user """
 import requests
 from sys import argv
 
@@ -10,6 +10,6 @@ if __name__ == "__main__":
     if '{' and '}' in request.text:
         json = request.json()
         if len(json) == 0:
-            print ("No result")
+            print("No result")
         else:
             print(f"[{json.get('id')}] {json.get('name')}")
