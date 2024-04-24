@@ -1,10 +1,10 @@
 #!/usr/bin/node
 
 const fs = require('fs');
-const args = process.argv;
+const arg = process.argv;
 
 try {
-  console.log(fs.readFileSync(args[2], 'utf8'));
+  fs.writeFileSync(arg[2], arg[3], 'utf8');
 } catch (err) {
   console.log(err);
 }
